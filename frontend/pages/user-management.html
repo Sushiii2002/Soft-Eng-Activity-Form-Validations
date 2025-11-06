@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - DR3 Hardware</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>DR3 Hardware</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="user-management.html" class="nav-item active">
+                    <span class="nav-icon">👥</span>
+                    <span>User Management</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">📦</span>
+                    <span>Inventory</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">🚚</span>
+                    <span>Suppliers</span>
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <span class="nav-icon">🚪</span>
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="content-header">
+                <h1>User Management</h1>
+                <div class="user-info">
+                    <span id="currentUserName">Admin</span>
+                    <span id="currentUserRole" class="badge">Owner</span>
+                </div>
+            </header>
+
+            <!-- User Registration Form -->
+            <section class="content-section">
+                <div class="section-header">
+                    <h2>Create New User</h2>
+                    <p>Register new employees and assign roles</p>
+                </div>
+
+                <form id="userRegistrationForm" class="registration-form" novalidate>
+                    <!-- Basic Information -->
+                    <fieldset class="form-fieldset">
+                        <legend>Basic Information</legend>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input 
+                                    type="text" 
+                                    id="fullName" 
+                                    name="fullName" 
+                                    placeholder="Juan Dela Cruz"
+                                    required
+                                    minlength="2"
+                                    maxlength="100"
+                                    aria-describedby="fullNameError"
+                                    tabindex="1">
+                                <span class="error-message" id="fullNameError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    placeholder="juan.delacruz@email.com"
+                                    required
+                                    aria-describedby="emailError"
+                                    tabindex="2">
+                                <span class="error-message" id="emailError"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input 
+                                    type="tel" 
+                                    id="phone" 
+                                    name="phone" 
+                                    placeholder="09171234567"
+                                    required
+                                    pattern="09[0-9]{9}"
+                                    maxlength="11"
+                                    aria-describedby="phoneError"
+                                    tabindex="3">
+                                <span class="help-text">Format: 09XXXXXXXXX</span>
+                                <span class="error-message" id="phoneError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="employmentDate">Employment Date *</label>
+                                <input 
+                                    type="date" 
+                                    id="employmentDate" 
+                                    name="employmentDate" 
+                                    required
+                                    aria-describedby="employmentDateError"
+                                    tabindex="4">
+                                <span class="error-message" id="employmentDateError"></span>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Account Information -->
+                    <fieldset class="form-fieldset">
+                        <legend>Account Information</legend>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="usernameReg">Username *</label>
+                                <input 
+                                    type="text" 
+                                    id="usernameReg" 
+                                    name="username" 
+                                    placeholder="Choose a username"
+                                    required
+                                    minlength="4"
+                                    maxlength="20"
+                                    pattern="[a-zA-Z0-9_]+"
+                                    aria-describedby="usernameRegError"
+                                    tabindex="5">
+                                <span class="help-text">4-20 characters, letters, numbers, and underscore only</span>
+                                <span class="error-message" id="usernameRegError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="role">User Role *</label>
+                                <select 
+                                    id="role" 
+                                    name="role" 
+                                    required
+                                    aria-describedby="roleError"
+                                    tabindex="6">
+                                    <option value="">-- Select Role --</option>
+                                    <option value="Owner">Owner</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="Inventory Clerk">Inventory Clerk</option>
+                                    <option value="Cashier">Cashier</option>
+                                </select>
+                                <span class="error-message" id="roleError"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="passwordReg">Password *</label>
+                                <div class="password-input-wrapper">
+                                    <input 
+                                        type="password" 
+                                        id="passwordReg" 
+                                        name="password" 
+                                        placeholder="Create a strong password"
+                                        required
+                                        minlength="8"
+                                        aria-describedby="passwordRegError"
+                                        tabindex="7">
+                                    <button type="button" class="toggle-password" data-target="passwordReg">👁️</button>
+                                </div>
+                                <span class="help-text">Min 8 characters with uppercase, lowercase, number, and special character</span>
+                                <span class="error-message" id="passwordRegError"></span>
+                                
+                                <!-- Password Strength Indicator -->
+                                <div class="password-strength" id="passwordStrength">
+                                    <div class="strength-bar">
+                                        <div class="strength-bar-fill" id="strengthBarFill"></div>
+                                    </div>
+                                    <span class="strength-text" id="strengthText"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password *</label>
+                                <div class="password-input-wrapper">
+                                    <input 
+                                        type="password" 
+                                        id="confirmPassword" 
+                                        name="confirmPassword" 
+                                        placeholder="Re-enter password"
+                                        required
+                                        aria-describedby="confirmPasswordError"
+                                        tabindex="8">
+                                    <button type="button" class="toggle-password" data-target="confirmPassword">👁️</button>
+                                </div>
+                                <span class="error-message" id="confirmPasswordError"></span>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Additional Information -->
+                    <fieldset class="form-fieldset">
+                        <legend>Additional Information</legend>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="status">Account Status *</label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input 
+                                            type="radio" 
+                                            id="statusActive" 
+                                            name="status" 
+                                            value="Active" 
+                                            checked
+                                            tabindex="9">
+                                        <span>Active</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input 
+                                            type="radio" 
+                                            id="statusInactive" 
+                                            name="status" 
+                                            value="Inactive"
+                                            tabindex="10">
+                                        <span>Inactive</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="photoUpload">Profile Photo (Optional)</label>
+                                <input 
+                                    type="file" 
+                                    id="photoUpload" 
+                                    name="photo" 
+                                    accept="image/jpeg,image/png,image/jpg"
+                                    aria-describedby="photoUploadError"
+                                    tabindex="11">
+                                <span class="help-text">Max 2MB, JPG/PNG only</span>
+                                <span class="error-message" id="photoUploadError"></span>
+                                
+                                <!-- Image Preview -->
+                                <div id="imagePreview" class="image-preview" style="display: none;">
+                                    <img id="previewImg" src="" alt="Preview">
+                                    <button type="button" id="removeImage" class="btn-remove-image">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Alert Messages -->
+                    <div id="formAlertMessage" class="alert-message" style="display: none;"></div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="resetBtn" tabindex="13">
+                            Clear Form
+                        </button>
+                        <button type="submit" class="btn-primary" id="submitBtn" tabindex="12">
+                            <span id="submitBtnText">Create User</span>
+                            <span id="submitBtnSpinner" class="spinner" style="display: none;"></span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Users List Section -->
+            <section class="content-section">
+                <div class="section-header">
+                    <h2>Registered Users</h2>
+                    <div class="section-actions">
+                        <input 
+                            type="text" 
+                            id="searchUsers" 
+                            placeholder="Search users..."
+                            class="search-input">
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table" id="usersTable">
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Username</th>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Actions</th>

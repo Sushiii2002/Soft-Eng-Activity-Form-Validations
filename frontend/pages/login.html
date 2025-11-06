@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - DR3 Hardware Management System</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <!-- Logo/Header -->
+            <div class="login-header">
+                <h1>DR3 Hardware</h1>
+                <p>Construction Supply Management System</p>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" novalidate>
+                <div class="form-group">
+                    <label for="username">Username *</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        placeholder="Enter your username"
+                        required
+                        autocomplete="username"
+                        aria-describedby="usernameError"
+                        tabindex="1">
+                    <span class="error-message" id="usernameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <div class="password-input-wrapper">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            placeholder="Enter your password"
+                            required
+                            autocomplete="current-password"
+                            aria-describedby="passwordError"
+                            tabindex="2">
+                        <button type="button" class="toggle-password" id="togglePassword" tabindex="-1">
+                            👁️
+                        </button>
+                    </div>
+                    <span class="error-message" id="passwordError"></span>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input 
+                            type="checkbox" 
+                            id="rememberMe" 
+                            name="rememberMe"
+                            tabindex="3">
+                        <span>Remember me</span>
+                    </label>
+                </div>
+
+                <!-- Alert Messages -->
+                <div id="alertMessage" class="alert-message" style="display: none;"></div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-primary" id="loginBtn" tabindex="4">
+                    <span id="loginBtnText">Login</span>
+                    <span id="loginBtnSpinner" class="spinner" style="display: none;"></span>
+                </button>
+
+                <!-- Additional Links -->
+                <div class="form-footer">
+                    <a href="#" class="forgot-password" tabindex="5">Forgot Password?</a>
+                </div>
+            </form>
+
+            <!-- System Info -->
+            <div class="login-footer">
+                <p>© 2025 DR3 Hardware. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/validation.js"></script>
+    <script src="../js/login-handler.js"></script>
+</body>
+</html>
