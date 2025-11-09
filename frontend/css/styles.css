@@ -511,7 +511,7 @@ button {
     }
     
     .main-content {
-    margin-left: 200px;
+        margin-left: 200px;
         padding: var(--spacing-md);
     }
     
