@@ -12,7 +12,7 @@
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <h2>DR3 Hardware & Construction Supply</h2>
+                <h2>DR3 Hardware</h2>
             </div>
             <nav class="sidebar-nav">
                 <a href="dashboard.html" class="nav-item">
@@ -38,6 +38,10 @@
                 <a href="user-management.html" class="nav-item active">
                     <span class="nav-icon">👥</span>
                     <span>User Management</span>
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <span class="nav-icon">🚪</span>
+                    <span>Logout</span>
                 </a>
             </nav>
         </aside>
@@ -302,3 +306,21 @@
                                 <th>Role</th>
                                 <th>Status</th>
                                 <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <tr>
+                                <td colspan="7" class="no-data">Loading users...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/validation.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/form-handler.js"></script>
+</body>
+</html>

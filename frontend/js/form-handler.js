@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (targetField) {
                     const type = targetField.type === 'password' ? 'text' : 'password';
                     targetField.type = type;
-                    this.textContent = type === 'password' ? '👁️' : '🙈';
+                    this.textContent = type === 'password' ? 'Show' : 'Hide';
                 }
             });
         });

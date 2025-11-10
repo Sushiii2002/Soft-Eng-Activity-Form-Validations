@@ -1,7 +1,7 @@
 # backend/database.py
 import mysql.connector
 from mysql.connector import Error, pooling
-from app_config import Config  # Changed from 'from config import Config'
+from app_config import Config  
 import logging
 
 logging.basicConfig(level=logging.INFO)

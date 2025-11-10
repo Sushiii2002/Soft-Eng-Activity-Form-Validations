@@ -59,7 +59,7 @@ CREATE TABLE login_attempts (
     INDEX idx_attempt_time (attempt_time)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
--- Note: This is a hashed version using Argon2 - you'll generate this properly in code
+-- Note: This is a hashed version using Argon2
 INSERT INTO
     users (
         user_id,

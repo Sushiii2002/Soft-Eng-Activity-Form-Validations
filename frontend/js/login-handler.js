@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         togglePasswordBtn.addEventListener('click', function() {
             const type = passwordField.type === 'password' ? 'text' : 'password';
             passwordField.type = type;
-            togglePasswordBtn.textContent = type === 'password' ? '👁️' : '🙈';
+            togglePasswordBtn.textContent = type === 'password' ? 'Show' : 'Hide';
         });
     }
     
